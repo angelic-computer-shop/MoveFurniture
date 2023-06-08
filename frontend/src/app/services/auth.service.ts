@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
+import { Drivers } from '../models/drivers';
 
-const AUTH_API = 'http://localhost:9000/driver/';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,50 +15,29 @@ const httpOptions = {
 })
 export class AuthService {
 
-
+private apiUrl = 'http://localhost:9000/';
 
 
   
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(
-      AUTH_API + 'signin',
-      {
-        email,
-        password,
-      },
-      httpOptions
-    );
-  }
-
-
-
- 
-
-
   
 
+  login(credentials: {email: string, password: string}): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users/auth`,credentials);
+      
+  }
 //Register as a driver
 
-  register(name: string, email: string, password: string,surname: string, idno: number,trucktype: string,cellno: number,licenseno: string): Observable<any> {
-    return this.http.post(
-      AUTH_API + 'signup',
-      {
-        name,
-        surname,
-        idno,
-        trucktype,
-        licenseno,
-        cellno,
-        email,
-        password
-      },
-      httpOptions
-    );
+  register(drivers:Drivers): Observable<any> {
+    return this.http.post(`${this.apiUrl}/driver`,drivers);
+     
+      
+     
+   
   }
 
-  logout(): Observable<any> {
-    return this.http.post(AUTH_API + 'signout', { }, httpOptions);
-  }
+  // logout(): Observable<any> {
+  //   return this.http.post(apiUrl + 'signout', { }, httpOptions);
+  // }
 }
