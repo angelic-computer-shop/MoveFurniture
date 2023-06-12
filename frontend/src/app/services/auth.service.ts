@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
 import { Drivers } from '../models/drivers';
+import { Users } from '../models/users';
 
 
 
@@ -31,6 +32,14 @@ private apiUrl = 'http://localhost:9000';
 
   register(drivers:Drivers): Observable<any> {
     return this.http.post(`${this.apiUrl}/driver`,drivers);
+     
+      
+     
+   
+  }
+
+  registers(users:Users): Observable<any> {
+    return this.http.post(`${this.apiUrl}/driver`,users);
      
       
      
