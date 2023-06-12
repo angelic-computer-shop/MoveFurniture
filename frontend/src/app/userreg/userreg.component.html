@@ -1,1 +1,154 @@
-<p>userreg works!</p>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            <form [formGroup]="fb" (ngSubmit)="onSubmit()">
+            
+            
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="form-group">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="name"
+                    id="name"
+                    formControlName="name"
+                    
+                  />
+                    <label  for="name">First name</label>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="surname"
+                    id="surname"
+                    formControlName="surname"
+                  />
+                    <label for="surname">Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="idno"
+                    id="idno"
+                    formControlName="idno"
+                  />
+                    <label for="idno">ID no</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                   
+
+                    <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="trucktype"
+          id="trucktype"
+          formControlName="trucktype"
+          
+        />
+                    <label for="trucktype">Truck Model</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="licenseno"
+                    [(ngModel)]="licenseno"
+                    formControlName="licenseno"
+                  />
+                    <label for="lisenseno">License no</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                    type="number"
+                    class="form-control"
+                    id="cellno"
+                    [(ngModel)]="cellno"
+                    formControlName="cellno"
+                  />
+                    <label for="cellno">Cell no</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                type="email"
+                class="form-control"
+                [(ngModel)]="email"
+               
+                
+                id="email"
+                    formControlName="email"
+              />
+                <label for="email">Email</label>
+                <div *ngIf="fb.get('email')?.invalid&&fb.get('email')?.touched">
+                    <div *ngIf="fb.get('email')?.errors?.['required']">Email is required</div>
+                    <div *ngIf="fb.get('email')?.errors?.['email']">Invalid email</div>
+                </div>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input
+                type="password"
+                class="form-control"
+                id="password"
+                [(ngModel)]="password"
+                    formControlName="password"
+              />
+                <label for="password">Password</label>
+              </div>
+
+            
+              
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Sign up
+              </button> <p >
+                Already have an account?<a routerLink="/login" class="ml-1 font-medium text-blue-400">Login </a>
+                </p>
+
+        
+               
+            
+                
+</div>
+                
+           
+            </form>
+        </div>
+      </div>
+    </div>
+  </section>
