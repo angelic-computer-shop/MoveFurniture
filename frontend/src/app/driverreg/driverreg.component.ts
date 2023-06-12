@@ -69,14 +69,18 @@ return null;
 
         registerDriver()
         {
-          if(this.fb.valid){
-            this.usersService.createDriver(this.fb.value).subscribe(res=>{
-              this.drivers=res;
+                       this.usersService.createDriver(this.fb.value).subscribe(res=>{
+   this.drivers=res;
               console.log(res);
+          // if(this.fb.valid){
+            // this.usersService.createDriver(this.fb.value).subscribe(res=>{
+            //   this.drivers=res;
+            //   console.log(res);
+                       
             });
           }
         }
       
-    }
+    
 
 

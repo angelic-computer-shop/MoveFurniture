@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-private apiUrl = 'http://localhost:9000/';
+private apiUrl = 'http://localhost:9000';
 
 
   
@@ -23,10 +23,10 @@ private apiUrl = 'http://localhost:9000/';
 
   
 
-  login(credentials: {email: string, password: string}): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/auth`,credentials);
+  // login(credentials: {email: string, password: string}): Observable<any> {
+  //   return this.http.post(`${this.apiUrl}/users/auth`,credentials);
       
-  }
+  // }
 //Register as a driver
 
   register(drivers:Drivers): Observable<any> {
@@ -37,7 +37,21 @@ private apiUrl = 'http://localhost:9000/';
    
   }
 
+  
+
   // logout(): Observable<any> {
   //   return this.http.post(apiUrl + 'signout', { }, httpOptions);
   // }
+
+  
+
+  login(credentials: { email: string, password: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/log`, credentials);
+  }
+
+  getLoggedInDriverId(): Observable<number> {
+    // Make an API call to retrieve the logged-in patient ID
+    return this.http.get<number>(`${this.apiUrl}/driver/:id`);
+  }
+
 }

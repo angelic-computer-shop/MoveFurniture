@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <h2 class="fw-bold mb-5">Sign up now</h2>
-            <form [formGroup]="fb" (ngSubmit)="onSubmit">
+            <form [formGroup]="fb" (ngSubmit)="onSubmit()">
             
             
               <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -18,22 +18,26 @@
                     <input
                     type="text"
                     class="form-control"
+                    [(ngModel)]="name"
                     id="name"
                     formControlName="name"
                     
                   />
-                    <label class="form-label" for="form3Example1">First name</label>
+                    <label  for="name">First name</label>
                   </div>
                 </div>
+
+
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <input
                     type="text"
                     class="form-control"
+                    [(ngModel)]="surname"
                     id="surname"
                     formControlName="surname"
                   />
-                    <label class="form-label" for="form3Example2">Last name</label>
+                    <label for="surname">Last name</label>
                   </div>
                 </div>
               </div>
@@ -42,14 +46,16 @@
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <input
-                    type="number"
+                    type="text"
                     class="form-control"
+                    [(ngModel)]="idno"
                     id="idno"
                     formControlName="idno"
                   />
-                    <label class="form-label" for="form3Example1">ID no</label>
+                    <label for="idno">ID no</label>
                   </div>
                 </div>
+
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                    
@@ -57,11 +63,12 @@
                     <input
           type="text"
           class="form-control"
+          [(ngModel)]="trucktype"
           id="trucktype"
           formControlName="trucktype"
           
         />
-                    <label class="form-label" for="form3Example2">Truck Model</label>
+                    <label for="trucktype">Truck Model</label>
                   </div>
                 </div>
               </div>
@@ -73,9 +80,10 @@
                     type="text"
                     class="form-control"
                     id="licenseno"
+                    [(ngModel)]="licenseno"
                     formControlName="licenseno"
                   />
-                    <label class="form-label" for="form3Example1">License no</label>
+                    <label for="lisenseno">License no</label>
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
@@ -84,22 +92,26 @@
                     type="number"
                     class="form-control"
                     id="cellno"
+                    [(ngModel)]="cellno"
                     formControlName="cellno"
                   />
-                    <label class="form-label" for="form3Example2">Cell no</label>
+                    <label for="cellno">Cell no</label>
                   </div>
                 </div>
               </div>
+
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <input
                 type="email"
                 class="form-control"
+                [(ngModel)]="email"
+               
                 
                 id="email"
                     formControlName="email"
               />
-                <label class="form-label" for="form3Example3">Email</label>
+                <label for="email">Email</label>
                 <div *ngIf="fb.get('email')?.invalid&&fb.get('email')?.touched">
                     <div *ngIf="fb.get('email')?.errors?.['required']">Email is required</div>
                     <div *ngIf="fb.get('email')?.errors?.['email']">Invalid email</div>
@@ -112,9 +124,10 @@
                 type="password"
                 class="form-control"
                 id="password"
+                [(ngModel)]="password"
                     formControlName="password"
               />
-                <label class="form-label" for="form3Example4">Password</label>
+                <label for="password">Password</label>
               </div>
 
             

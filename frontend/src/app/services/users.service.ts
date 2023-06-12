@@ -23,4 +23,12 @@ export class UsersService {
 
     
   }
+
+
+  
+  
+
+  getDriver(){
+    return this.http.get(this.apiUrl)
+  }
 }
